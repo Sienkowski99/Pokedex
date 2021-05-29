@@ -5,16 +5,18 @@ import CardContent from "@material-ui/core/CardContent";
 import { Link } from 'react-router-dom';
 import Typography from "@material-ui/core/Typography";
 import Pikachu_64 from '../images/Pikachu_64.png'
+import { connect } from 'react-redux';
+import operations from '../operations/index';
 
 const PokemonCardBaisc = (props) => {
   return (
-    // <Link to={{pathname: `/pokemon/${props.pokemon.id}`}} style={{textDecoration: "none", color: "black"}}>
     <Card style={{ 
         width: "200px", 
         height: "400px", 
         margin: "5px",
         textAlign: "center",
     }}>
+      <Link to={{pathname: `/pokemon/${props.pokemon.id}`}} style={{textDecoration: "none", color: "black"}}>
       <CardContent style={{
         display: "flex", 
         flexDirection: "column",
@@ -39,6 +41,7 @@ const PokemonCardBaisc = (props) => {
                 {'"a benevolent smile"'}
                 </Typography> */}
       </CardContent>
+      </Link>
 
       <CardActions style={{display: "flex", justifyContent: "space-between"}}>
         {/* <Link to={{pathname: `/pokemon/${props.pokemon.id}`}}><Button size="small" style={{backgroundColor: "blue"}}>Learn More</Button></Link> */}
@@ -48,12 +51,25 @@ const PokemonCardBaisc = (props) => {
         } */}
         <p style={{margin: "0"}}>Favortie</p> 
         {props.favorites.includes(props.pokemon.id) ? 
-        <img src={Pikachu_64} style={{width: "40px"}} onClick={()=>{props.setFav([...props.favorites.filter(pokemon_id => pokemon_id !== props.pokemon.id)])}}/> :
-        <img src={Pikachu_64} style={{width: "40px", filter: "grayscale(100%)"}} onClick={()=>{props.setFav([...props.favorites, props.pokemon.id])}}/>
+        <img src={Pikachu_64} style={{width: "40px"}} onClick={()=>props.removePokemonFromFavorites(props.pokemon.id)}/> :
+        <img src={Pikachu_64} style={{width: "40px", filter: "grayscale(100%)"}} onClick={()=>props.addPokemonToFavorites(props.pokemon.id)}/>
         }
       </CardActions>
     </Card>
-    // </Link>
   );
 };
-export default PokemonCardBaisc;
+
+function mapStateToProps(state) {
+  return {
+      favorites: state.favorites,
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPokemonToFavorites: (pokemon_id) => dispatch(operations.addPokemonToFavorites(pokemon_id)),
+    removePokemonFromFavorites: (pokemon_id) => dispatch(operations.removePokemonFromFavorites(pokemon_id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonCardBaisc);
