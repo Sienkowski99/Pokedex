@@ -10,52 +10,89 @@ import operations from '../operations/index';
 
 const PokemonCardBaisc = (props) => {
   return (
-    <Card style={{ 
-        width: "200px", 
-        height: "400px", 
-        margin: "5px",
-        textAlign: "center",
+    <Card style={{width: "270px", height: "400px", margin: "12px 4px", display: "flex",
+      flexDirection: "column", justifyContent: "space-between", alignItems: "center",
+      border: "solid gray 1px"
     }}>
-      <Link to={{pathname: `/pokemon/${props.pokemon.id}`}} style={{textDecoration: "none", color: "black"}}>
-      <CardContent style={{
-        display: "flex", 
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        // paddingBottom: "10px"
-      }}>
-        <h3 style={{margin: "0", marginBottom: "15px"}}>{props.pokemon.name}</h3>
-        <img src={props.pokemon.images.small} style={{width: "90%"}}/>
-        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
-                Word of the Day
-                </Typography>
-                <Typography variant="h5" component="h2">
-                be{bull}nev{bull}o{bull}lent
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                adjective
-                </Typography>
-                <Typography variant="body2" component="p">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-                </Typography> */}
-      </CardContent>
-      </Link>
+      <CardContent style={{height: "77%"}}>
+        <Link to={{pathname: `/pokemon/${props.pokemon.id}`}} style={{
+          textDecoration: "none", color: "black",
+          display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", 
+          // backgroundColor: "red",
+          textAlign: "center",
+          // border: "solid red 2px", borderRadius: "10px"
+        }}>
+          <Typography variant="overline" style={{marginBottom: "5px", fontWeight: "bold"}}>
+            {props.pokemon.name}
+          </Typography>
+          <img src={props.pokemon.images.small} style={{maxWidth: "80%", marginBottom: "10px", border: "solid gray 2px", borderRadius: "10px"}}/>
+        </Link>
 
-      <CardActions style={{display: "flex", justifyContent: "space-between"}}>
-        {/* <Link to={{pathname: `/pokemon/${props.pokemon.id}`}}><Button size="small" style={{backgroundColor: "blue"}}>Learn More</Button></Link> */}
-        {/* {!props.favorites.includes(props.pokemon.id) ?
-        <p style={{margin: "0"}}>Add to favorites</p> :
-        <p style={{margin: "0"}}>Remove from favorites</p> 
-        } */}
-        <p style={{margin: "0"}}>Favortie</p> 
+      </CardContent>
+      <CardActions style={{
+        width: "80%",
+        height: "20%",
+        display: "flex", justifyContent: "space-around", alignItems: "center",
+        marginBottom: "3%"
+      }}>
+        <Typography variant="overline">
+          Favorite
+        </Typography>
         {props.favorites.includes(props.pokemon.id) ? 
-        <img src={Pikachu_64} style={{width: "40px"}} onClick={()=>props.removePokemonFromFavorites(props.pokemon.id)}/> :
-        <img src={Pikachu_64} style={{width: "40px", filter: "grayscale(100%)"}} onClick={()=>props.addPokemonToFavorites(props.pokemon.id)}/>
+          <img src={Pikachu_64} style={{width: "40px", marginBottom: "5px"}} onClick={()=>props.removePokemonFromFavorites(props.pokemon.id)}/> :
+          <img src={Pikachu_64} style={{width: "40px", filter: "grayscale(100%)", marginBottom: "5px"}} onClick={()=>props.addPokemonToFavorites(props.pokemon.id)}/>
         }
       </CardActions>
     </Card>
+
+
+
+    // <Card style={{ 
+    //     width: "200px", 
+    //     height: "400px", 
+    //     margin: "5px",
+    //     textAlign: "center",
+    // }}>
+    //   <Link to={{pathname: `/pokemon/${props.pokemon.id}`}} style={{textDecoration: "none", color: "black"}}>
+    //   <CardContent style={{
+    //     display: "flex", 
+    //     flexDirection: "column",
+    //     justifyContent: "space-between",
+    //     alignItems: "center",
+    //     // paddingBottom: "10px"
+    //   }}>
+    //     <h3 style={{margin: "0", marginBottom: "15px"}}>{props.pokemon.name}</h3>
+    //     <img src={props.pokemon.images.small} style={{width: "90%"}}/>
+    //     {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
+    //             Word of the Day
+    //             </Typography>
+    //             <Typography variant="h5" component="h2">
+    //             be{bull}nev{bull}o{bull}lent
+    //             </Typography>
+    //             <Typography className={classes.pos} color="textSecondary">
+    //             adjective
+    //             </Typography>
+    //             <Typography variant="body2" component="p">
+    //             well meaning and kindly.
+    //             <br />
+    //             {'"a benevolent smile"'}
+    //             </Typography> */}
+    //   </CardContent>
+    //   </Link>
+
+    //   <CardActions style={{display: "flex", justifyContent: "space-between"}}>
+    //     {/* <Link to={{pathname: `/pokemon/${props.pokemon.id}`}}><Button size="small" style={{backgroundColor: "blue"}}>Learn More</Button></Link> */}
+    //     {/* {!props.favorites.includes(props.pokemon.id) ?
+    //     <p style={{margin: "0"}}>Add to favorites</p> :
+    //     <p style={{margin: "0"}}>Remove from favorites</p> 
+    //     } */}
+    //     <p style={{margin: "0"}}>Favortie</p> 
+    //     {props.favorites.includes(props.pokemon.id) ? 
+    //     <img src={Pikachu_64} style={{width: "40px"}} onClick={()=>props.removePokemonFromFavorites(props.pokemon.id)}/> :
+    //     <img src={Pikachu_64} style={{width: "40px", filter: "grayscale(100%)"}} onClick={()=>props.addPokemonToFavorites(props.pokemon.id)}/>
+    //     }
+    //   </CardActions>
+    // </Card>
   );
 };
 

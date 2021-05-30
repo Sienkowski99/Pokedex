@@ -68,7 +68,7 @@ const Main = (props) => {
       <NavbarSearch setSearchPhrase={setSearchPhrase}/>
       {props.pokemons.length === 0 ? <img src={loadingGIF} style={{width: "50px", height: "50px", margin: "auto"}}/> : null}
       {props.pokemons.length === 0 ? null :
-      <div style={{
+      <div className="filter-bar" style={{
         display: "flex",
         marginTop: "80px",
         // backgroundColor: "red",
@@ -76,24 +76,28 @@ const Main = (props) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        // textAlign: "center"
         // width: "30%"
       }}>
         <div style={{
           display: "flex",
+          alignItems: "center"
         }}>
-          <Typography variant='overline' noWrap style={{margin: "0", marginRight: "10px"}}>Filter by type</Typography>
+          <Typography variant='overline' noWrap style={{margin: "0", marginRight: "10px"}}>Filter by pokemon type</Typography>
           <Select
             value={searchedPokemonType}
             onChange={(e, v)=>{console.log(v.props.value);setSearchedPokemonType(v.props.value)}}
+            style={{padding: "0"}}
           >
-            <MenuItem value={"Any"}>Any</MenuItem>
+            <MenuItem value={"Any"}><Typography variant='overline'>Any</Typography></MenuItem>
             {props.types.map(type=> {
-              return <MenuItem value={type}>{type}</MenuItem>
+              return <MenuItem key={type} value={type}><Typography variant='overline'>{type}</Typography></MenuItem>
             })}
           </Select>
         </div>
         <div style={{
           display: "flex",
+          alignItems: "center"
         }}>
           <Typography variant='overline' noWrap style={{margin: "0", marginRight: "10px"}}>Number of cards on page</Typography>
           {/* <p style={{
@@ -101,7 +105,8 @@ const Main = (props) => {
             marginRight: "10px"
           }}>
             Number of cards on page</p> */}
-          {/* <select onChange={(e)=>{console.log(e.target.value); setElementsOnPage(e.target.value)}}>
+          {/* <select onChange={(e)=>{console.log(e.target.value); setElementsOnPage(e.target.value)}}
+           style={{background: "none", border: "none"}}>
             <option value="20">20</option>
             <option value="30">30</option>
             <option value="60">60</option>
@@ -112,9 +117,9 @@ const Main = (props) => {
             value={elementsOnPage}
             onChange={(e, v)=>{console.log(v.props.value);setElementsOnPage(v.props.value)}}
           >
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={60}>60</MenuItem>
+            <MenuItem value={20}><Typography variant='overline'>20</Typography></MenuItem>
+            <MenuItem value={40}><Typography variant='overline'>40</Typography></MenuItem>
+            <MenuItem value={60}><Typography variant='overline'>60</Typography></MenuItem>
           </Select>
         </div>
       </div> }
@@ -131,7 +136,7 @@ const Main = (props) => {
         // backgroundColor: "yellow"
       }}>
         {pokemons.slice((currentPage-1)*elementsOnPage, elementsOnPage*currentPage).map((pokemon) => (
-          <PokemonCardBaisc pokemon={pokemon}/>
+          <PokemonCardBaisc key={pokemon.id} pokemon={pokemon}/>
         ))}
       </div>
 
