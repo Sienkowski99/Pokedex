@@ -12,7 +12,7 @@ const PokemonCardBaisc = (props) => {
   return (
     <Card style={{width: "270px", height: "400px", margin: "12px 4px", display: "flex",
       flexDirection: "column", justifyContent: "space-between", alignItems: "center",
-      border: "solid gray 1px"
+      // border: "solid gray 1px"
     }}>
       <CardContent style={{height: "77%"}}>
         <Link to={{pathname: `/pokemon/${props.pokemon.id}`}} style={{
@@ -25,7 +25,9 @@ const PokemonCardBaisc = (props) => {
           <Typography variant="overline" style={{marginBottom: "5px", fontWeight: "bold"}}>
             {props.pokemon.name}
           </Typography>
-          <img src={props.pokemon.images.small} style={{maxWidth: "80%", marginBottom: "10px", border: "solid gray 2px", borderRadius: "10px"}}/>
+          <img src={props.pokemon.images.small} style={{maxWidth: "80%",
+           border: "solid black 1px", borderRadius: "10px"
+           }}/>
         </Link>
 
       </CardContent>

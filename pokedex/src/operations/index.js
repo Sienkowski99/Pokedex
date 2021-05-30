@@ -3,7 +3,7 @@ import { setPokemonCards, addToFavorites, removeFromFavorites, setTypes } from "
 
 const fetchPokemonCards = () => async (dispatch) => {
   axios
-    .get("https://api.pokemontcg.io/v2/cards", {userName: ""})
+    .get("https://api.pokemontcg.io/v2/cards", {headers: {'X-Api-Key': "371659a7-f1bd-4b5e-a6d3-618574d90323"}})
     .then((resp) => {
       console.log(resp.data.data);
       return resp.data.data;
@@ -14,7 +14,7 @@ const fetchPokemonCards = () => async (dispatch) => {
     .catch((err) => {alert("Cannot fetch data from API!"); console.log(err);});
   // AND THEIR TYPES AS WELL
   axios
-    .get("https://api.pokemontcg.io/v2/types", {userName: ""})
+    .get("https://api.pokemontcg.io/v2/types", {headers: {'X-Api-Key': "371659a7-f1bd-4b5e-a6d3-618574d90323"}})
     .then((resp) => {
       console.log(resp.data.data);
       return resp.data.data;

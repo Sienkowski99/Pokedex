@@ -66,8 +66,7 @@ const Main = (props) => {
 
 
       <NavbarSearch setSearchPhrase={setSearchPhrase}/>
-      {props.pokemons.length === 0 ? <img src={loadingGIF} style={{width: "50px", height: "50px", margin: "auto"}}/> : null}
-      {props.pokemons.length === 0 ? null :
+      {props.pokemons.length === 0 ? <img src={loadingGIF} style={{width: "50px", height: "50px", margin: "auto"}}/> :
       <div className="filter-bar" style={{
         display: "flex",
         marginTop: "80px",
