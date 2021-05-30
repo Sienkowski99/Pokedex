@@ -3,7 +3,7 @@ import { setPokemonCards, addToFavorites, removeFromFavorites } from "../actions
 
 const fetchPokemonCards = () => async (dispatch) => {
   axios
-    .get("https://api.pokemontcg.io/v2/cards")
+    .get("https://api.pokemontcg.io/v2/cards", {userName: ""})
     .then((resp) => {
       return resp.data.data;
     })

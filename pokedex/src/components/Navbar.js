@@ -12,12 +12,12 @@ const Navbar = () => {
             backgroundColor: "#C32028",
             // backgroundColor: "#964a4e",
             height: "70px",
-            // position: "sticky"
+            position: "fixed"
         }}>
             <Toolbar style={{
                 // backgroundColor: "#C32028",
                 height: "100%",
-                width: "80%",
+                width: "78%",
                 alignSelf: "center",
                 display: "flex",
                 justifyContent: "space-between",

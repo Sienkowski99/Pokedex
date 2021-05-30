@@ -15,7 +15,7 @@ function App(props) {
   },[])
   return (
     <BrowserRouter>
-        <Navbar/>
+        {/* <Navbar/> */}
         <Switch>
           <Route exact path="/" component={Main}/>
           <Route path="/pokemon/:id" component={Pokemon}/>

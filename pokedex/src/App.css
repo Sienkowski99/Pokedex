@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 } */
+
+.main-background {
+  min-height: 100vh;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* overflow: scroll; */
+  flex-grow: 1;
+}
