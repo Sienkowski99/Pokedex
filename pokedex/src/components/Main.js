@@ -28,7 +28,8 @@ const Main = (props) => {
         pokemon.name.toLowerCase().includes(searchPhrase.toLowerCase()) ||
         // pokemon.supertype.toLowerCase().includes(searchPhrase.toLowerCase()) ||
         pokemon.subtypes.reduce((acc, curr) => {return acc || curr.toLowerCase().includes(searchPhrase.toLowerCase())}, false) ||
-        pokemon.types.reduce((acc, curr) => {return acc || curr.toLowerCase().includes(searchPhrase.toLowerCase())}, false)
+        pokemon.types.reduce((acc, curr) => {return acc || curr.toLowerCase().includes(searchPhrase.toLowerCase())}, false) ||
+        ("favorite".includes(searchPhrase.toLowerCase()) && props.favorites.includes(pokemon.id))
       ) {
         return true
       } else {
@@ -172,7 +173,8 @@ const Main = (props) => {
 function mapStateToProps(state) {
   return {
       pokemons: state.pokemons,
-      types: state.types
+      types: state.types,
+      favorites: state.favorites
   };
 }
 
