@@ -5,7 +5,7 @@
     <li>React</li>
     <li>Redux</li>
     <li>Material UI</li>
-    <li>[Pokemon API](https://pokemontcg.io/)</li>
+    <li>Pokemon API: https://pokemontcg.io/</li>
 </ul>
 
 <h3>To run this app:</h3>
