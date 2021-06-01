@@ -10,8 +10,9 @@ import operations from '../operations/index';
 
 const PokemonCardBaisc = (props) => {
   return (
-    <Card style={{width: "270px", height: "400px", margin: "12px 4px", display: "flex",
+    <Card style={{width: "280px", height: "400px", margin: "8px 4px", display: "flex",
       flexDirection: "column", justifyContent: "space-between", alignItems: "center",
+      backgroundColor: "rgba(255, 255, 255, 0.8)"
       // border: "solid gray 1px"
     }}>
       <CardContent style={{height: "77%"}}>

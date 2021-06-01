@@ -43,7 +43,7 @@ const Pokemon = (props) => {
   }, []);
 
   return (
-    <div className="main-background">
+    <div className="main-background" style={{maxHeight: "none", overflowY: "hidden"}}>
       <Navbar />
       {!pokemon.id ? (
         <img
@@ -51,18 +51,22 @@ const Pokemon = (props) => {
           style={{ width: "50px", height: "50px", margin: "auto" }}
         />
       ) : (
-        <Card style={{
+        <Card className="pokemonCard-spacing" style={{
           border: `solid ${typesAndColors[pokemon.types[0]].primary} 20px`,
           backgroundColor: `${typesAndColors[pokemon.types[0]].secondary}`,
           padding: "20px",
           marginTop: "80px",
+          // flex: 1
         }}>
           <div className="pokemonDetailedCard" style={{
-            backgroundColor: "white",
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
             display: "flex",
             padding: "30px",
             gap: "50px",
+            // flex: 1,
+            // overflowY: "scroll"
             // flexBasis: "auto"
+
           }}>
 
 
@@ -73,6 +77,9 @@ const Pokemon = (props) => {
                   display: "flex",
                   flexDirection: "column",
                   width: "270px",
+                  paddingLeft: "5px",
+                  // overflowY: "scroll"
+          
                   // height: "100%",
                   // flexGrow: 1
                 }}
@@ -122,7 +129,9 @@ const Pokemon = (props) => {
                 </Typography>
 
                 <br/>
-                <Typography variant="overline">
+                <Typography variant="overline" style={{
+                  // color: "blue"
+                }}>
                   {pokemon.rarity
                     ? `Rarity: ${pokemon.rarity}`
                     : null}

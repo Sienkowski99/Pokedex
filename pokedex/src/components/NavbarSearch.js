@@ -9,15 +9,15 @@ import { Link } from  'react-router-dom';
 const NavbarSearch = (props) => {
     return (
         <AppBar style={{
-            backgroundColor: "#C32028",
-            // backgroundColor: "#964a4e",
+            // backgroundColor: "#C32028",
+            backgroundColor: "#CD232C",
             height: "70px",
             position: "fixed"
         }}>
             <Toolbar style={{
                 // backgroundColor: "#C32028",
                 height: "100%",
-                width: "79%",
+                width: "78%",
                 alignSelf: "center",
                 display: "flex",
                 justifyContent: "space-between",

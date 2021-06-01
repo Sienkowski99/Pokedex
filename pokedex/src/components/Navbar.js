@@ -9,7 +9,8 @@ import { Link } from  'react-router-dom';
 const Navbar = (props) => {
     return (
         <AppBar style={{
-            backgroundColor: "#C32028",
+            // backgroundColor: "#C32028",
+            backgroundColor: "#CD232C",
             // backgroundColor: "#964a4e",
             height: "70px",
             position: "fixed"

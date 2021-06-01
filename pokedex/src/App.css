@@ -39,6 +39,7 @@
 
 .main-background {
   min-height: 100vh;
+  max-height: 100vh;
   background-color: lightgray;
   display: flex;
   flex-direction: column;
@@ -46,6 +47,11 @@
   align-items: center;
   /* overflow: scroll; */
   flex-grow: 1;
+  /* background-image: url("https://i.pinimg.com/originals/93/98/94/9398944b931f51d4ab0a8e92f44ca452.jpg"); */
+  background-image: url("./images/grass.jpg");
+  background-attachment: fixed;
+  overflow-y: scroll;
+  /* padding-top: 80px; */
 }
 
 @media (max-width: 750px) {
@@ -60,4 +66,9 @@
     display: flex;
     flex-direction: column;
   }
+}
+
+.MuiPagination-ul {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
 }
