@@ -1,11 +1,12 @@
 import axios from "axios";
-const api_key = "371659a7-f1bd-4b5e-a6d3-618574d90323"
 import {
   setPokemonCards,
   addToFavorites,
   removeFromFavorites,
   setTypes,
 } from "../actions/index";
+
+const api_key = "371659a7-f1bd-4b5e-a6d3-618574d90323"
 
 const fetchPokemonCards = () => async (dispatch) => {
   axios

@@ -1,17 +1,13 @@
 import PokemonCardBaisc from "./PokemonCardBasic";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import operations from "../operations/index";
-import { setPokemonCards } from "../actions";
 import loadingGIF from "../images/loading.gif";
 import NavbarSearch from "../components/NavbarSearch";
-import Pagination from "@material-ui/lab/Pagination";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import PageSelector from "./PageSelector";
 import Typography from "@material-ui/core/Typography";
-import NativeSelect from "@material-ui/core/NativeSelect";
 
 const Main = (props) => {
   const [pages, setPages] = useState([]);

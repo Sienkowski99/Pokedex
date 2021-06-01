@@ -34,7 +34,7 @@ const NavbarSearch = (props) => {
             alignItems: "center",
           }}
         >
-          <img src={Pokeball_64} style={{ widht: "40px", height: "40px" }} />
+          <img alt="pokeball" src={Pokeball_64} style={{ widht: "40px", height: "40px" }} />
           <Typography variant="h4" noWrap style={{ margin: "0 10px" }}>
             Pokédex
           </Typography>

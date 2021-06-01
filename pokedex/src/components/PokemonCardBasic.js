@@ -41,6 +41,7 @@ const PokemonCardBaisc = (props) => {
             {props.pokemon.name}
           </Typography>
           <img
+            alt="card"
             src={props.pokemon.images.small}
             style={{
               maxWidth: "80%",
@@ -63,12 +64,14 @@ const PokemonCardBaisc = (props) => {
         <Typography variant="overline">Favorite</Typography>
         {props.favorites.includes(props.pokemon.id) ? (
           <img
+            alt="pikachu"
             src={Pikachu_64}
             style={{ width: "40px", marginBottom: "5px" }}
             onClick={() => props.removePokemonFromFavorites(props.pokemon.id)}
           />
         ) : (
           <img
+            alt="pikachu gray"
             src={Pikachu_64}
             style={{
               width: "40px",

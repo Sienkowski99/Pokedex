@@ -50,6 +50,7 @@ const Pokemon = (props) => {
       <Navbar />
       {!pokemon.id ? (
         <img
+          alt="loading"
           src={loadingGIF}
           style={{ width: "50px", height: "50px", margin: "auto" }}
         />
@@ -170,12 +171,14 @@ const Pokemon = (props) => {
                 <Typography variant="overline">Favorite</Typography>
                 {props.favorites.includes(pokemon.id) ? (
                   <img
+                    alt="pikachu"
                     src={Pikachu_64}
                     style={{ width: "40px", marginBottom: "5px" }}
                     onClick={() => props.removePokemonFromFavorites(pokemon.id)}
                   />
                 ) : (
                   <img
+                    alt="pikachu gray"
                     src={Pikachu_64}
                     style={{
                       width: "40px",
@@ -189,6 +192,7 @@ const Pokemon = (props) => {
             </div>
 
             <img
+              alt="pokemon"
               src={pokemon.images.large}
               style={{
                 maxHeight: "500px",
