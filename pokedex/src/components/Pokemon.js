@@ -43,7 +43,10 @@ const Pokemon = (props) => {
   }, []);
 
   return (
-    <div className="main-background" style={{maxHeight: "none", overflowY: "hidden"}}>
+    <div
+      className="main-background"
+      style={{ maxHeight: "none", overflowY: "hidden" }}
+    >
       <Navbar />
       {!pokemon.id ? (
         <img
@@ -51,299 +54,148 @@ const Pokemon = (props) => {
           style={{ width: "50px", height: "50px", margin: "auto" }}
         />
       ) : (
-        <Card className="pokemonCard-spacing" style={{
-          border: `solid ${typesAndColors[pokemon.types[0]].primary} 20px`,
-          backgroundColor: `${typesAndColors[pokemon.types[0]].secondary}`,
-          padding: "20px",
-          marginTop: "80px",
-          // flex: 1
-        }}>
-          <div className="pokemonDetailedCard" style={{
-            backgroundColor: "rgba(255, 255, 255, 0.9)",
-            display: "flex",
-            padding: "30px",
-            gap: "50px",
-            // flex: 1,
-            // overflowY: "scroll"
-            // flexBasis: "auto"
+        <Card
+          className="pokemonCard-spacing"
+          style={{
+            border: `solid ${typesAndColors[pokemon.types[0]].primary} 20px`,
+            backgroundColor: `${typesAndColors[pokemon.types[0]].secondary}`,
+            padding: "20px",
+            marginTop: "80px",
+          }}
+        >
+          <div
+            className="pokemonDetailedCard"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              display: "flex",
+              padding: "30px",
+              gap: "50px",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "270px",
+                paddingLeft: "5px",
+              }}
+            >
+              <Typography variant="h3">{pokemon.name}</Typography>
 
-          }}>
+              <Typography variant="overline">
+                {pokemon.types.length > 1 ? "Types" : "Type"}:{" "}
+                {pokemon.types.reduce((acc, curr) => {
+                  if (acc === "") {
+                    return `${curr}`;
+                  } else {
+                    return `${acc}, ${curr}`;
+                  }
+                }, "")}
+              </Typography>
 
+              <Typography variant="overline">
+                {pokemon.subtypes.length > 1 ? "Subtypes" : "Subtype"}:{" "}
+                {pokemon.subtypes.reduce((acc, curr) => {
+                  if (acc === "") {
+                    return `${curr}`;
+                  } else {
+                    return `${acc}, ${curr}`;
+                  }
+                }, "")}
+              </Typography>
 
+              <Typography variant="overline">
+                {pokemon.evolvesFrom
+                  ? `Evolves from: ${
+                      typeof pokemon.evolvesFrom == Array
+                        ? pokemon.evolvesFrom[0]
+                        : pokemon.evolvesFrom
+                    }`
+                  : null}
+              </Typography>
 
+              <Typography variant="overline">
+                {pokemon.evolvesTo
+                  ? `Evolves to: ${
+                      typeof pokemon.evolvesTo == Array
+                        ? pokemon.evolvesTo[0]
+                        : pokemon.evolvesTo
+                    }`
+                  : null}
+              </Typography>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "270px",
-                  paddingLeft: "5px",
-                  // overflowY: "scroll"
-          
-                  // height: "100%",
-                  // flexGrow: 1
-                }}
-              >
-                <Typography variant="h3">{pokemon.name}</Typography>
+              <br />
+              <Typography variant="overline">
+                {pokemon.rarity ? `Rarity: ${pokemon.rarity}` : null}
+              </Typography>
 
-                <Typography variant="overline">
-                  {pokemon.types.length > 1 ? "Types" : "Type"}:{" "}
-                  {pokemon.types.reduce((acc, curr) => {
-                    if (acc === "") {
-                      return `${curr}`;
-                    } else {
-                      return `${acc}, ${curr}`;
-                    }
-                  }, "")}
-                </Typography>
-                
-                <Typography variant="overline">
-                  {pokemon.subtypes.length > 1 ? "Subtypes" : "Subtype"}:{" "}
-                  {pokemon.subtypes.reduce((acc, curr) => {
-                    if (acc === "") {
-                      return `${curr}`;
-                    } else {
-                      return `${acc}, ${curr}`;
-                    }
-                  }, "")}
-                </Typography>
-
-                <Typography variant="overline">
-                  {pokemon.evolvesFrom
-                    ? `Evolves from: ${
-                        typeof pokemon.evolvesFrom == Array
-                          ? pokemon.evolvesFrom[0]
-                          : pokemon.evolvesFrom
-                      }`
-                    : null}
-                </Typography>
-                
-                <Typography variant="overline">
-                  {pokemon.evolvesTo
-                    ? `Evolves to: ${
-                        typeof pokemon.evolvesTo == Array
-                          ? pokemon.evolvesTo[0]
-                          : pokemon.evolvesTo
-                      }`
-                    : null}
-                </Typography>
-
-                <br/>
-                <Typography variant="overline" style={{
-                  // color: "blue"
-                }}>
-                  {pokemon.rarity
-                    ? `Rarity: ${pokemon.rarity}`
-                    : null}
-                </Typography>
-                
-                <Typography variant="overline">
-                  {pokemon.weaknesses
-                    ? `Weaknesses: ${pokemon.weaknesses.reduce((acc, curr) => {
+              <Typography variant="overline">
+                {pokemon.weaknesses
+                  ? `Weaknesses: ${pokemon.weaknesses.reduce((acc, curr) => {
                       if (acc === "") {
                         return `${curr.type}`;
                       } else {
                         return `${acc}, ${curr.type}`;
                       }
                     }, "")}`
-                    : null}
-                </Typography>
-                
-                <Typography variant="overline">
-                  {pokemon.hp
-                    ? `Heatlh Points: ${pokemon.hp}`
-                    : null}
-                </Typography>
+                  : null}
+              </Typography>
 
-                <Typography variant="overline">
-                  {pokemon.attacks
-                    ? `Atacks: ${pokemon.attacks.reduce((acc, curr) => {
+              <Typography variant="overline">
+                {pokemon.hp ? `Heatlh Points: ${pokemon.hp}` : null}
+              </Typography>
+
+              <Typography variant="overline">
+                {pokemon.attacks
+                  ? `Atacks: ${pokemon.attacks.reduce((acc, curr) => {
                       if (acc === "") {
                         return `${curr.name}`;
                       } else {
                         return `${acc}, ${curr.name}`;
                       }
                     }, "")}`
-                    : null}
-                </Typography>
+                  : null}
+              </Typography>
 
-                <div
-                  style={{
-                    display: "flex",
-                    marginTop: "60px",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "50%",
-                    // alignSelf: "flex-end",
-                    // height: "100%",
-                    justifySelf: "flex-end",
-                  }}
-                >
-                  <Typography variant="overline">Favorite</Typography>
-                  {props.favorites.includes(pokemon.id) ? (
-                    <img
-                      src={Pikachu_64}
-                      style={{ width: "40px", marginBottom: "5px" }}
-                      onClick={() =>
-                        props.removePokemonFromFavorites(pokemon.id)
-                      }
-                    />
-                  ) : (
-                    <img
-                      src={Pikachu_64}
-                      style={{
-                        width: "40px",
-                        filter: "grayscale(100%)",
-                        marginBottom: "5px",
-                      }}
-                      onClick={() => props.addPokemonToFavorites(pokemon.id)}
-                    />
-                  )}
-                </div>
-              </div>
-              
-              <img
-                src={pokemon.images.large}
-                style={{ 
-                  maxHeight: "500px"
+              <div
+                style={{
+                  display: "flex",
+                  marginTop: "60px",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "50%",
+                  justifySelf: "flex-end",
                 }}
-              />
+              >
+                <Typography variant="overline">Favorite</Typography>
+                {props.favorites.includes(pokemon.id) ? (
+                  <img
+                    src={Pikachu_64}
+                    style={{ width: "40px", marginBottom: "5px" }}
+                    onClick={() => props.removePokemonFromFavorites(pokemon.id)}
+                  />
+                ) : (
+                  <img
+                    src={Pikachu_64}
+                    style={{
+                      width: "40px",
+                      filter: "grayscale(100%)",
+                      marginBottom: "5px",
+                    }}
+                    onClick={() => props.addPokemonToFavorites(pokemon.id)}
+                  />
+                )}
+              </div>
+            </div>
 
-
+            <img
+              src={pokemon.images.large}
+              style={{
+                maxHeight: "500px",
+              }}
+            />
           </div>
         </Card>
-        // <Card
-        //   style={{
-        //     // width: "60%",
-        //     // backgroundColor: `${typesAndColors[pokemon.types[0].primary]}`,
-        //     // minHeight: "60vh",
-        //     // maxHeight: "80vh",
-        //     marginTop: "80px",
-        //     // padding: "10px",
-        //     border: `solid ${typesAndColors[pokemon.types[0]].primary} 20px`,
-        //     backgroundColor: `${typesAndColors[pokemon.types[0]].secondary}`,
-        //     // display: "flex",
-        //     // padding: "20px"
-        //   }}
-        // >
-        //   <div
-        //     style={{
-        //       backgroundColor: `${typesAndColors[pokemon.types[0]].secondary}`,
-        //       // borderRadius: "1px",
-        //       padding: "20px",
-        //       // display: "flex",
-        //       // flex: 1,
-        //     }}
-        //   >
-        //     <div
-        //       style={{
-        //         // width: "100%",
-        //         // height: "100%",
-        //         padding: "20px",
-        //         backgroundColor: "white",
-        //         flex: 1,
-        //         display: "flex",
-        //         justifyContent: "space-around",
-        //         alignItems: "center",
-        //         // height: "94%"
-        //       }}
-        //     >
-        //       <div
-        //         style={{
-        //           display: "flex",
-        //           flexDirection: "column",
-        //           height: "80%",
-        //           width: "30%",
-        //           // backgroundColor: "gray",
-        //         }}
-        //       >
-        //         <Typography variant="h4">Name: {pokemon.name}</Typography>
-
-        //         <Typography variant="overline">
-        //           {pokemon.types.length > 1 ? "Types" : "Type"}:{" "}
-        //           {pokemon.types.reduce((acc, curr) => {
-        //             if (acc === "") {
-        //               return `${curr}`;
-        //             } else {
-        //               return `${acc}, ${curr}`;
-        //             }
-        //           }, "")}
-        //         </Typography>
-
-        //         <Typography variant="overline">
-        //           {pokemon.evolvesTo
-        //             ? `Evolves to: ${
-        //                 typeof pokemon.evolvesTo == Array
-        //                   ? pokemon.evolvesTo[0]
-        //                   : pokemon.evolvesTo
-        //               }`
-        //             : null}
-        //         </Typography>
-
-        //         <Typography variant="overline">
-        //           {pokemon.evolvesFrom
-        //             ? `Evolves from: ${
-        //                 typeof pokemon.evolvesFrom == Array
-        //                   ? pokemon.evolvesFrom[0]
-        //                   : pokemon.evolvesFrom
-        //               }`
-        //             : null}
-        //         </Typography>
-
-        //         <Typography variant="overline">
-        //           {pokemon.subtypes.length > 1 ? "Subtypes" : "Subtype"}:{" "}
-        //           {pokemon.types.reduce((acc, curr) => {
-        //             if (acc === "") {
-        //               return `${curr}`;
-        //             } else {
-        //               return `${acc}, ${curr}`;
-        //             }
-        //           }, "")}
-        //         </Typography>
-
-        //         <div
-        //           style={{
-        //             display: "flex",
-        //             marginTop: "60px",
-        //             justifyContent: "space-between",
-        //             alignItems: "center",
-        //             width: "50%",
-        //             // alignSelf: "center",
-        //             justifySelf: "end",
-        //           }}
-        //         >
-        //           <Typography variant="overline">Favorite</Typography>
-        //           {props.favorites.includes(pokemon.id) ? (
-        //             <img
-        //               src={Pikachu_64}
-        //               style={{ width: "40px", marginBottom: "5px" }}
-        //               onClick={() =>
-        //                 props.removePokemonFromFavorites(pokemon.id)
-        //               }
-        //             />
-        //           ) : (
-        //             <img
-        //               src={Pikachu_64}
-        //               style={{
-        //                 width: "40px",
-        //                 filter: "grayscale(100%)",
-        //                 marginBottom: "5px",
-        //               }}
-        //               onClick={() => props.addPokemonToFavorites(pokemon.id)}
-        //             />
-        //           )}
-        //         </div>
-        //       </div>
-        //       <img
-        //         src={pokemon.images.large}
-        //         style={{ 
-        //           // border: "solid black 3px",
-        //           width: "30%"
-        //         }}
-        //       />
-        //     </div>
-        //   </div>
-        // </Card>
       )}
     </div>
   );

@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import Navbar from './components/Navbar'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Pokemon from './components/Pokemon'
 import NotFound from './components/NotFound'
@@ -25,12 +23,6 @@ function App(props) {
   );
 }
 
-// function mapStateToProps(state) {
-//   return {
-//       pokemons: state.pokemons,
-//   };
-// }
-
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPokemonCards: () => dispatch(operations.fetchPokemonCards())
@@ -38,4 +30,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(App);
-// export default App;
