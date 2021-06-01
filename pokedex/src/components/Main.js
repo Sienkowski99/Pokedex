@@ -18,6 +18,7 @@ const Main = (props) => {
   const [searchedPokemonType, setSearchedPokemonType] = useState("Any");
 
   useEffect(() => {
+    //APPLY FILTERS TO POKEMON DATA
     let filteredPokemons = props.pokemons.filter((pokemon) => {
       if (
         pokemon.name.toLowerCase().includes(searchPhrase.toLowerCase()) ||
@@ -46,14 +47,17 @@ const Main = (props) => {
   }, [searchPhrase, searchedPokemonType]);
 
   useEffect(() => {
+    //UPDATE POKEMONS IN THIS COMPONENT IN CASE NOT TO MODIFY STORE WHEN FILTERED
     setPokemons(props.pokemons);
   }, [props.pokemons]);
 
   useEffect(() => {
+    //SWITCH TO 1st PAGE EVERY TIME USER CHANGES NUMBER OF ELEMENTS TO DISPLAY
     setCurrentPage(1);
   }, [elementsOnPage]);
 
   useEffect(() => {
+    //CALCULATE NUMBER OF PAGES 
     const numberOfPages = Math.ceil(pokemons.length / elementsOnPage);
     const newPages = [];
     for (let i = 1; i <= numberOfPages; i++) {
@@ -82,6 +86,8 @@ const Main = (props) => {
             alignItems: "center",
           }}
         >
+
+          {/* ADD TYPE SELECTION (FILTER) */}
           <div
             style={{
               display: "flex",
@@ -115,6 +121,8 @@ const Main = (props) => {
               })}
             </Select>
           </div>
+
+          {/* ADD AMOUNT OF ELEMENTS SELECTION */}
           <div
             style={{
               display: "flex",
@@ -149,6 +157,7 @@ const Main = (props) => {
         </div>
       )}
 
+      {/* DISPLAY POKEMON CARDS */}
       <div
         style={{
           width: "80%",
@@ -168,6 +177,7 @@ const Main = (props) => {
           ))}
       </div>
 
+      {/* ADD PAGINATION */}
       {props.pokemons.length === 0 ? null : (
         <div
           style={{

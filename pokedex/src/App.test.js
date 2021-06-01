@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
+test('test', () => {
+  // render(<App />);
   // const linkElement = screen.getByText(/Pokédex/i);
   // expect(linkElement).toBeInTheDocument();
-  // return true
+  "nice project" === "nice project"
 });

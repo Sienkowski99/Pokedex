@@ -25,6 +25,7 @@ const Pokemon = (props) => {
   });
 
   useEffect(() => {
+    // FETCH DATA FOR THE POKEMON SPECIFIED BY PARAMS
     axios
       .get(`https://api.pokemontcg.io/v2/cards/${props.match.params.id}`, {
         headers: { "X-Api-Key": "371659a7-f1bd-4b5e-a6d3-618574d90323" },
@@ -73,6 +74,8 @@ const Pokemon = (props) => {
               gap: "50px",
             }}
           >
+
+            {/* ADD DESCRIPTION */}
             <div
               style={{
                 display: "flex",
@@ -158,6 +161,7 @@ const Pokemon = (props) => {
                   : null}
               </Typography>
 
+              {/* ADD TO FAVORITES ELEMENT */}
               <div
                 style={{
                   display: "flex",

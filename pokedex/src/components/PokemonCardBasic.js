@@ -34,12 +34,15 @@ const PokemonCardBaisc = (props) => {
             textAlign: "center",
           }}
         >
+          {/* POKEMON NAME */}
           <Typography
             variant="overline"
             style={{ marginBottom: "5px", fontWeight: "bold" }}
           >
             {props.pokemon.name}
           </Typography>
+          
+          {/* POKEMON CARD SMALL */}
           <img
             alt="card"
             src={props.pokemon.images.small}
@@ -51,6 +54,8 @@ const PokemonCardBaisc = (props) => {
           />
         </Link>
       </CardContent>
+
+      {/* ADD TO FAVORITES ELEMENT */}
       <CardActions
         style={{
           width: "80%",
